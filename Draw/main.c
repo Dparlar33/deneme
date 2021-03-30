@@ -68,13 +68,12 @@ int main(int argc, char *argv[]) {
 	}
 	
 	
-	FILE *file;
-	file=fopen("liste.txt","r");				//Again file is opened bcs it was closed above
+	fseek(fp,0,SEEK_SET);				//Again file is opened bcs it was closed above
 	int t=0;
 	int value_of_names;
 	for(t;t<name_counter;t++){
 		char c[50];
-		fgets(c,50,file);
+		fgets(c,50,fp);
 		value_of_names =  HashCalculate(c);
 		if(strcmp(HashTable[value_of_names].name,"")==0){
 			strcpy(HashTable[value_of_names].name,c);							//Located names into hashtable.
